@@ -215,6 +215,7 @@ Alert.STATE = {
 	 * @default false
 	 */
 	visible: {
+		validator: core.isBoolean,
 		value: false
 	}
 };
