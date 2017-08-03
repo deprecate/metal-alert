@@ -13,6 +13,9 @@ import templates from './Alert.soy.js';
  * Alert component.
  */
 class Alert extends Component {
+	/**
+	 * @inheritDoc
+	 */
 	created() {
 		this.eventHandler_ = new EventHandler();
 	}
@@ -37,7 +40,7 @@ class Alert extends Component {
 	}
 
 	/**
-	 * Handles document click in order to close the alert.
+	 * Handles document click in order to hide the alert.
 	 * @param {!Event} event
 	 * @protected
 	 */
@@ -48,7 +51,7 @@ class Alert extends Component {
 	}
 
 	/**
-	 * Hide the alert.
+	 * Hide the alert (with display "none").
 	 */
 	hide() {
 		this.visible = false;
@@ -73,14 +76,16 @@ class Alert extends Component {
 	}
 
 	/**
-	 * Show the alert.
+	 * Show the alert by changing its visiblity to true. Will only show if the
+	 * alert is hidden, not disposed.
 	 */
 	show() {
 		this.visible = true;
 	}
 
 	/**
-	 * Synchronization logic for `dismissible` state.
+	 * Synchronization logic for `dismissible` state. If the alert is closeable
+	 * (dismissible), a click event handler will be attached.
 	 * @param {boolean} dismissible
 	 */
 	syncDismissible(dismissible) {
@@ -92,7 +97,8 @@ class Alert extends Component {
 	}
 
 	/**
-	 * Synchronization logic for `hideDelay` state.
+	 * Synchronization logic for `hideDelay` state. When hideDelay has a valid value,
+	 * the alert will hide in the amount of ms defined.
 	 * @param {?number} hideDelay
 	 */
 	syncHideDelay(hideDelay) {
@@ -103,7 +109,8 @@ class Alert extends Component {
 	}
 
 	/**
-	 * Synchronization logic for `visible` state.
+	 * Synchronization logic for `visible` state. Adds and removes hide/show classes
+	 * based on the visibility of the alert.
 	 * @param {boolean} visible
 	 */
 	syncVisible(visible, prevVisible) {
