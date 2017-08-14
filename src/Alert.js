@@ -207,6 +207,7 @@ Alert.STATE = {
 	 * @type {?number}
 	 */
 	hideDelay: {
+		validator: core.isNumber
 	},
 
 	/**
