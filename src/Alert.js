@@ -51,7 +51,7 @@ class Alert extends Component {
 	}
 
 	/**
-	 * Hide the alert (with display "none").
+	 * Hide the alert.
 	 */
 	hide() {
 		this.visible = false;
@@ -76,16 +76,15 @@ class Alert extends Component {
 	}
 
 	/**
-	 * Show the alert by changing its visiblity to true. Will only show if the
-	 * alert is hidden, not disposed.
+	 * Show the alert.
 	 */
 	show() {
 		this.visible = true;
 	}
 
 	/**
-	 * Synchronization logic for `dismissible` state. If the alert is closeable
-	 * (dismissible), a click event handler will be attached.
+	 * Synchronization logic for `dismissible` state. If the alert is dismissible,
+	 * a click event handler will be attached.
 	 * @param {boolean} dismissible
 	 */
 	syncDismissible(dismissible) {
@@ -98,7 +97,7 @@ class Alert extends Component {
 
 	/**
 	 * Synchronization logic for `hideDelay` state. When hideDelay has a valid value,
-	 * the alert will hide in the amount of ms defined.
+	 * the alert will hide in the time (ms) defined.
 	 * @param {?number} hideDelay
 	 */
 	syncHideDelay(hideDelay) {
@@ -109,7 +108,7 @@ class Alert extends Component {
 	}
 
 	/**
-	 * Synchronization logic for `visible` state. Adds and removes hide/show classes
+	 * Synchronization logic for `visible` state. Adds and removes show/hide classes
 	 * based on the visibility of the alert.
 	 * @param {boolean} visible
 	 */
