@@ -213,4 +213,5 @@ Alert.STATE = {
 	}
 };
 
+export { Alert };
 export default Alert;
